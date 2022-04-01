@@ -5,6 +5,15 @@
 
 .container {
   text-align: center;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 0.5fr repeat(4, 1fr);
+  grid-template-areas:
+  "logo header header header header header"
+  "sidebar main main main main main"
+  "sidebar main main main main main"
+  "sidebar main main main main main"
+  "sidebar main main main main main"
 }
 
 .container div {
@@ -17,12 +26,16 @@
 
 .header {
   background-color: #393f4d;
+  grid-area: header;
 }
 
 .logo {
+  grid-area: logo;
 }
 
 .menu {
+  grid-area: header;
+  justify-self: end;
 }
 
 .menu ul {
@@ -35,6 +48,7 @@
 
 .sidebar {
   background-color: #FF7755;
+  grid-area: sidebar;
 }
 
 .sidebar .photo {

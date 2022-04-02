@@ -4,16 +4,17 @@
 }
 
 .container {
+  
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 0.5fr repeat(4, 1fr);
+  gap: 5px;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 0.5fr 0.25fr 4fr 0.25fr;
   grid-template-areas:
-  "logo header header header header header"
-  "sidebar main main main main main"
-  "sidebar main main main main main"
-  "sidebar main main main main main"
-  "sidebar main main main main main"
+  "header header"
+  "sidebar nav"
+  "sidebar article"
+  "footer footer"
 }
 
 .container div {
@@ -27,6 +28,11 @@
 .header {
   background-color: #393f4d;
   grid-area: header;
+  display: grid;
+  grid-template-columns: minmax(min-content, 1fr) 4fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "logo menu";
+  align-items: center;
 }
 
 .logo {
@@ -34,21 +40,33 @@
 }
 
 .menu {
-  grid-area: header;
+  grid-area: menu;
   justify-self: end;
 }
 
 .menu ul {
+  list-style: none;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: end;
+  gap: 30px;
 }
 
 .menu ul,
 .menu li {
   font-size: 16px;
+  
 }
 
 .sidebar {
   background-color: #FF7755;
   grid-area: sidebar;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 30px;
 }
 
 .sidebar .photo {
@@ -71,9 +89,20 @@
 
 .nav {
   background-color: #FF7755;
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
 }
 
 .nav ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, 1fr));
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav ul li {
@@ -83,8 +112,18 @@
 
 .article {
   background-color: #bccbde;
+  grid-area: article;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: repeat(3, 200px);
+
+  gap: 15px;
 }
 
+.card {
+  
+}
 .article p {
   font-size: 18px;
   font-family: sans-serif;
@@ -111,6 +150,7 @@
 
 .footer {
   background-color: #393f4d;
+  grid-area: footer;
 }
 
 .footer p {
